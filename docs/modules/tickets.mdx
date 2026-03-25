@@ -1,0 +1,191 @@
+---
+sidebar_position: 18
+title: Tickets
+description: Learn how to set up and manage ProBot's Tickets system, including ticket panels, categories, roles, automation, forms, messages, transcripts, claiming, and ticket logs.
+keywords: [ProBot, Tickets, Support, Ticket Panels, Ticket Logs, Discord tickets]
+---
+
+# Tickets
+
+ProBot's Tickets system allows you to create a fully-featured support ticket system for your Discord server. Members can open tickets through buttons or dropdowns, and your staff team can manage, claim, and close them — all from the dashboard.
+
+:::info
+
+The dashboard is where the configurations described here are managed.
+
+1. Go to the dashboard and log in.
+2. Select your server from the menu on the left.
+3. Choose the module and make sure that it is enabled.
+
+:::
+
+## Overview
+
+The Overview tab gives you a quick summary of your ticket activity over a selected time period (e.g., 30 Days). It displays:
+
+- **Total Tickets** — The total number of tickets created.
+- **Opened Tickets** — Currently open tickets.
+- **Closed Tickets** — Tickets that have been closed.
+- **Response Time** — Average staff response time.
+
+You will also see a **Tickets by Panel** breakdown and a **Daily Activity** chart showing ticket volume over time.
+
+## Ticket Panels
+
+Ticket panels are the core of the ticket system. Each panel defines how users create tickets and how those tickets are handled. You can create multiple panels for different purposes (e.g., "General Support", "Bug Reports").
+
+To create a panel, click the **Create Panel** button. Each panel has an **Edit** button and a three-dot menu with options to **Duplicate** or **Delete** it.
+
+### Basic Settings
+
+| Setting | Description |
+|---|---|
+| **Panel Name** | The name of the ticket panel (e.g., "Tickets"). |
+| **Naming Scheme** | How ticket channels are named. Use `{number}` for auto-incrementing numbers (e.g., `ticket-{number}`). |
+| **User Ticket Limit** | Maximum number of tickets a single user can have open at once. |
+| **Cooldown (seconds)** | Cooldown period before a user can open another ticket. |
+| **Attached Panels** | Link other panels together so they appear on the same message. |
+| **Enable/Disable Panel** | Toggle the panel on or off. |
+
+### Appearance
+
+Choose how users interact with the ticket panel:
+
+- **Button** — Users click a button to create a ticket.
+  - **Emoji** — Optional emoji displayed on the button.
+  - **Button Style** — Choose a color style (e.g., Primary Blue).
+  - **Button Label** — The text on the button (e.g., "Create Ticket").
+
+- **Dropdown** — Users select from a dropdown menu.
+  - **Dropdown Placeholder** — The placeholder text shown in the dropdown.
+  - **Dropdown Options** — Each option has an **Emoji**, **Label**, and **Description**.
+
+### Categories
+
+Organize tickets into Discord channel categories:
+
+| Setting | Description |
+|---|---|
+| **Ticket Open Category** | The category where new/open ticket channels are created. |
+| **Ticket Closed Category** | The category where closed ticket channels are moved to. |
+| **Ticket Claimed Category** | The category where claimed ticket channels are moved to. |
+
+### Permission & Roles
+
+Control who can access and manage tickets:
+
+| Role | Description |
+|---|---|
+| **Staff Roles** | Roles that can view and respond to tickets. |
+| **Admin Roles** | Roles with full administrative control over tickets. |
+| **Blacklisted Roles** | Roles that are prevented from creating tickets. |
+| **Whitelisted Roles** | Roles that bypass restrictions (e.g., cooldowns). |
+| **Ping Roles** | Roles that get pinged when a new ticket is created. |
+
+### Automation
+
+Automate common ticket actions:
+
+| Setting | Description |
+|---|---|
+| **Auto-close After (hours)** | Automatically close inactive tickets after the specified number of hours. Set to `0` to disable. |
+| **Auto-delete After (hours)** | Automatically delete closed tickets after the specified number of hours. Set to `0` to disable. |
+| **Auto-pin First Message** | Automatically pins the first message in the ticket channel. |
+| **Require Topic** | Require users to provide a topic when opening a ticket. |
+
+### Form Settings
+
+You can require users to fill out a form when creating a ticket:
+
+- **Require Form** — Toggle to enable or disable the form.
+- **Form Title** — The title displayed at the top of the form.
+
+#### Form Fields
+
+Each form field has the following options:
+
+| Option | Description |
+|---|---|
+| **Label** | The name of the field (e.g., "What is your issue?"). |
+| **Field Style** | Choose between **Short Text (Single-Line)** or **Long Text (Multi-Line)**. |
+| **Placeholder** | Optional placeholder text shown inside the field. |
+| **Min Length** | Minimum character length for the response. |
+| **Max Length** | Maximum character length for the response. |
+| **Required** | Whether the field must be filled out. |
+
+You can add multiple fields by clicking **+ Add Field**, and remove fields with the delete button.
+
+### Panel Messages
+
+Customize the messages sent at various ticket lifecycle events. Each message can be sent as plain text or as an **Embed** with a color, author, title, description, and images.
+
+| Message | When it is sent |
+|---|---|
+| **Greeting Message** | When a ticket is first opened. |
+| **Ticket Message** | The main message displayed in the ticket channel. |
+| **Open Message** | When a ticket is created. |
+| **Close Message** | When a ticket is closed. |
+| **Claim Message** | When a staff member claims a ticket. |
+| **Unclaim Message** | When a staff member unclaims a ticket. |
+
+#### Available Variables
+
+Use these variables in your messages:
+
+| Variable | Description |
+|---|---|
+| `[user]` | User mention |
+| `[username]` | Username |
+| `[ticket]` | Ticket number |
+| `[channel]` | Channel mention |
+| `[topic]` | User topic |
+
+### Transcripts
+
+Save ticket conversations for future reference:
+
+| Setting | Description |
+|---|---|
+| **Transcript Channel** | The channel where transcripts are sent. |
+| **Transcript Format** | Choose between **HTML (Discord Style)**, **JSON (Structured Data)**, or **Plain Text**. |
+
+### Claiming Settings
+
+Allow staff members to claim tickets so only they handle them:
+
+| Setting | Description |
+|---|---|
+| **Enable Claiming** | Toggle claiming on or off. |
+| **Claim Mode** | **Toggle** — Staff must unclaim before another can claim. **Reassign** — Staff can claim from others directly. |
+
+## Ticket Logs
+
+The Ticket Logs tab allows you to configure logging for ticket-related events. Set a **Log Channel** where ticket logs are sent, then toggle individual **Log Actions** on or off:
+
+| Log Action | Description |
+|---|---|
+| **Created** | A ticket is created. |
+| **Claimed** | A ticket is claimed by staff. |
+| **Unclaimed** | A ticket is unclaimed. |
+| **Closed** | A ticket is closed. |
+| **Reopened** | A closed ticket is reopened. |
+| **Locked** | A ticket is locked. |
+| **Unlocked** | A ticket is unlocked. |
+| **Deleted** | A ticket is deleted. |
+| **Priority Changed** | A ticket's priority is changed. |
+| **Transferred** | A ticket is transferred to another panel or staff. |
+| **Renamed** | A ticket channel is renamed. |
+| **Permissions Changed** | Ticket permissions are modified. |
+| **Transcript Generated** | A transcript is created for the ticket. |
+
+:::tip
+
+Enable logging for at least **Created**, **Claimed**, **Closed**, and **Deleted** actions to maintain a clear audit trail of ticket activity.
+
+:::
+
+:::caution
+
+Make sure ProBot has the necessary permissions in your ticket categories and log channels, including `Manage Channels`, `Send Messages`, and `Manage Webhooks`.
+
+:::
